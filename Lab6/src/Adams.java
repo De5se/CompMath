@@ -15,7 +15,6 @@ public class Adams {
         result[0][5] = h * functions.f(result[0][0] + h / 2, result[0][1] + result[0][4] / 2, functionNumber);
         result[0][6] = h * functions.f(result[0][0] + h, result[0][1] + result[0][5], functionNumber);
 
-        System.out.println("Считаем первые 4 строки");
         for (int i = 1; i < 4; i++) {
             result[i][0] = result[i - 1][0] + h;
             result[i][1] = result[i - 1][1] + (result[i - 1][3] + 2 * result[i - 1][4] + 2 * result[i - 1][5] + result[i - 1][6]) / 6;
@@ -27,7 +26,6 @@ public class Adams {
             result[i][6] = h * functions.f(result[i][0] + h, result[i][1] + result[i][5], functionNumber);
         }
 
-        System.out.println("Считаем остальное");
         for (int i = 4; i < n; i++) {
             result[i][0] = result[i - 1][0] + h;
 

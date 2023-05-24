@@ -1,8 +1,8 @@
 public class Main {
 
     public static void main(String[] args) {
-        InputManager inputConsole = new InputManager();
-        OutputManager outputConsole = new OutputManager();
+        InputManager inputManager = new InputManager();
+        OutputManager outputManager = new OutputManager();
         Euler eulerMethod = new Euler();
         EulerModified eulerModifiedMethod = new EulerModified();
         Adams adamsMethod = new Adams();
@@ -10,35 +10,37 @@ public class Main {
         DrawChart drawChart = new DrawChart();
         int inputType;
         while (true) {
-            inputType = inputConsole.methodInput();
+            inputType = inputManager.methodInput();
 
             if (inputType == 1 || inputType == 2){
-                int functionNumber = inputConsole.functionSelection();
-                double a = inputConsole.inputA();
-                double b = inputConsole.inputB();
-                double h = inputConsole.inputH();
-                double y0 = inputConsole.inputY();
-                int e = inputConsole.inputE();
+                int functionNumber = inputManager.functionSelection();
+                double a = inputManager.inputA();
+                double b = inputManager.inputB();
+                double h = inputManager.inputH();
+                double y0 = inputManager.inputY();
+                int e = inputManager.inputE();
+
                 double[][] result = (inputType == 1 )
                                 ? eulerMethod.startCalculations(a, b, y0, h, functionNumber)
                                 : eulerModifiedMethod.startCalculations(a, b, y0, h, functionNumber);
-                outputConsole.printInterval(a, b, h);
-                outputConsole.printTable(result, e);
+                outputManager.printInterval(a, b, h);
+                outputManager.printTable(result, e);
                 drawChart.draw(result, (inputType == 1 )
                         ? "Метод Эйлера"
                         : "Модифицированный метод Эйлера");
             }
             else if (inputType == 3){
-                int functionNumber = inputConsole.functionSelection();
-                double a = inputConsole.inputA();
-                double b = inputConsole.inputB();
-                double h = inputConsole.inputH();
-                double y0 = inputConsole.inputY();
-                double eps = inputConsole.inputEps();
-                int e = inputConsole.inputE();
+                int functionNumber = inputManager.functionSelection();
+                double a = inputManager.inputA();
+                double b = inputManager.inputB();
+                double h = inputManager.inputH();
+                double y0 = inputManager.inputY();
+                double eps = inputManager.inputEps();
+                int e = inputManager.inputE();
+
                 double[][] result = adamsMethod.startCalculations(a, b, y0, h, eps, functionNumber);
-                outputConsole.printInterval(a, b, h);
-                outputConsole.printTable(result, e);
+                outputManager.printInterval(a, b, h);
+                outputManager.printTable(result, e);
                 drawChart.draw(result, "Метод Адамса");
             }
         }
