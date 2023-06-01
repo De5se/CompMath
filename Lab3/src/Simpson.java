@@ -37,8 +37,8 @@ public class Simpson {
             r = Math.abs(I - answer);
             aNew = a;
         }
-        System.out.println("\nРешение методом Симпсона:");
 
+        System.out.println("\nРешение методом Симпсона:");
         if (Double.isNaN(answer) || Double.isNaN(I) || Double.isNaN(r) || Double.isNaN(Math.abs(100 * r / ((I + answer) / 2)))) {
             System.out.println("В выбранном интервале присутсвует разрыв первого рода!\n");
         } else {

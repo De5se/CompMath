@@ -3,9 +3,6 @@ import java.util.Scanner;
 public class InputFunctions {
     Scanner in = new Scanner(System.in);
 
-    public void Start() {
-    }
-
     public int inputFunction() {
         while (true) {
             System.out.print("""
@@ -32,13 +29,13 @@ public class InputFunctions {
                     1. Метод трапеций
                     2. Метод Симсона
                     3. Метод Прямоугольников
-                    Номер метода:\s""");
+                    Введите номер метода:\s""");
             try {
                 int methodNumber = Integer.parseInt(in.next().trim());
                 if (methodNumber == 1 || methodNumber == 2 || methodNumber == 3)
                     return methodNumber;
             } catch (NumberFormatException ignored) {
-                System.out.println("Введите число из диапозона 1-3");
+                System.out.println("Введите число от 1 до 3");
             }
         }
     }
@@ -55,14 +52,14 @@ public class InputFunctions {
                 if (num_method == 1 || num_method == 2 || num_method == 3)
                     return num_method;
             } catch (NumberFormatException ignored) {
-                System.out.println("Введите число из диапозона 1-4");
+                System.out.println("Введите число от 1 до4");
             }
         }
     }
 
     public int inputA() {
         while (true) {
-            System.out.print("Введите нижний целочисленный предел интегрирования a: ");
+            System.out.print("Введите нижний целочисленный предел a: ");
             try {
                 return Integer.parseInt(in.next().trim());
             } catch (NumberFormatException ignored) {
@@ -72,7 +69,7 @@ public class InputFunctions {
 
     public int inputB() {
         while (true) {
-            System.out.print("Введите верхний целочисленный предел интегрирования b: ");
+            System.out.print("Введите верхний целочисленный предел b: ");
             try {
                 return Integer.parseInt(in.next().trim());
             } catch (NumberFormatException ignored) {

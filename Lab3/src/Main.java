@@ -5,20 +5,20 @@ public class Main {
         Trapezoid trapezoidMethod = new Trapezoid();
         Rectangle rectangleMethod = new Rectangle();
 
-        inputFunctions.Start();
         while (true) {
             int functionNumber = inputFunctions.inputFunction();
             if (functionNumber != 0) {
                 int methodNumber = inputFunctions.inputMethod();
 
+                double a = inputFunctions.inputA();
+                double b = inputFunctions.inputB();
+                double e = inputFunctions.inputE();
+
                 switch (methodNumber) {
-                    case (1) -> trapezoidMethod.startMethod(inputFunctions.inputA(), inputFunctions.inputB(), inputFunctions.inputE(), functionNumber);
-                    case (2) -> simpsonMethod.startMethod(inputFunctions.inputA(), inputFunctions.inputB(), inputFunctions.inputE(), functionNumber);
+                    case (1) -> trapezoidMethod.startMethod(a, b, e, functionNumber);
+                    case (2) -> simpsonMethod.startMethod(a, b, e, functionNumber);
                     case (3) -> {
                         int methodOfRectangles = inputFunctions.inputMethodOfRectangles();
-                        double a = inputFunctions.inputA();
-                        double b = inputFunctions.inputB();
-                        double e = inputFunctions.inputE();
 
                         DrawChart draw = new DrawChart();
                         draw.draw(a, b, functionNumber);
@@ -27,16 +27,9 @@ public class Main {
                             case (1) -> rectangleMethod.startMethodRight(a, b, e, functionNumber);
                             case (2) -> rectangleMethod.startMethodLeft(a, b, e, functionNumber);
                             case (3) -> rectangleMethod.startMethodMid(a, b, e, functionNumber);
-                            default -> {
-                                rectangleMethod.startMethodRight(a, b, e, functionNumber);
-                                rectangleMethod.startMethodLeft(a, b, e, functionNumber);
-                                rectangleMethod.startMethodMid(a, b, e, functionNumber);
-                            }
                         }
                     }
-                    default -> System.out.println("Недопустимый номер, повторите ввод...");
                 }
-
             }
         }
 

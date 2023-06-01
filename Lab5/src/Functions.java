@@ -49,9 +49,6 @@ public class Functions {
                 else
                     return Math.cos(x);
             }
-            case (2) -> {
-                return 0;
-            }
             default -> {
                 return 0;
             }

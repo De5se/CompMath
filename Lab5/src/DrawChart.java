@@ -16,7 +16,6 @@ public class DrawChart {
         XYSeries seriesPoints = new XYSeries("Points");
         XYSeries seriesReal = new XYSeries("Real");
         XYSeries seriesLagrange = new XYSeries("Lagrange");
-
         XYSeriesCollection dataset = new XYSeriesCollection();
 
         for (int i = 0; i < points[0].length; i++) {
@@ -40,7 +39,7 @@ public class DrawChart {
 
         JFrame frame =
                 new JFrame("MinimalStaticChart");
-        // Помещаем график на фрейм
+        // Помещаем график
         frame.getContentPane()
                 .add(new ChartPanel(chart));
         frame.setSize(1000, 500);
